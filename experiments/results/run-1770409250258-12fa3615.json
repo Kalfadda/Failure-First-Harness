@@ -1,0 +1,35 @@
+{
+  "run_id": "run-1770409250258-12fa3615",
+  "task_id": "task-001",
+  "task_name": "Webhook Signature Validator",
+  "condition": "A",
+  "timestamp": "2026-02-06T20:20:50.258Z",
+  "identified_failures": [
+    {
+      "ground_truth_id": "GT001",
+      "title": "Missing signature header"
+    },
+    {
+      "ground_truth_id": "GT002",
+      "title": "Empty signature header"
+    },
+    {
+      "ground_truth_id": "GT005",
+      "title": "Missing secret validation"
+    }
+  ],
+  "verified_failures": [
+    {
+      "ground_truth_id": "GT001",
+      "title": "Missing signature header"
+    },
+    {
+      "ground_truth_id": "GT002",
+      "title": "Empty signature header"
+    }
+  ],
+  "metadata": {
+    "simulated": true,
+    "note": "Replace with actual LLM agent calls for real experiments"
+  }
+}

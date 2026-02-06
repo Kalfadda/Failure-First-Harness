@@ -1,0 +1,22 @@
+{
+  "name": "failure-first-harness",
+  "version": "0.1.0",
+  "description": "Separation of powers for agentic software development",
+  "type": "commonjs",
+  "scripts": {
+    "experiment": "node experiments/run-experiment.js",
+    "experiment:all": "node experiments/run-experiment.js experiments/tasks/validate-signature.json --all",
+    "score": "node experiments/scoring/score.js",
+    "compare": "node experiments/scoring/compare.js",
+    "ffh": "node cli/ffh.js",
+    "validate": "node failurespec/validate.js"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "governance",
+    "verification",
+    "testing"
+  ],
+  "license": "MIT"
+}

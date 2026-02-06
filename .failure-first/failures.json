@@ -17,8 +17,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login endpoint accessible"],
-        "steps": ["Send 100 login requests with wrong password for same username in rapid succession"],
+        "preconditions": [
+          "Login endpoint accessible"
+        ],
+        "steps": [
+          "Send 100 login requests with wrong password for same username in rapid succession"
+        ],
         "expected_if_vulnerable": "All 100 requests processed without blocking"
       },
       "evidence": {
@@ -26,12 +30,19 @@
         "criteria": "Test sends N+1 requests, asserts blocking response after threshold"
       },
       "status": {
-        "state": "claimed",
+        "state": "verified",
         "guardrail": {
           "design": "Rate limiter with per-IP and per-account limits. 5 attempts per 15min window, then 15min block",
           "location": "src/lib/rate-limit.ts:1-100, src/app/api/auth/login/route.ts:25-50",
           "implemented_by": "builder-session-001",
           "implemented_at": "2026-02-05T00:00:00Z"
+        },
+        "verification": {
+          "method": "Manual verification",
+          "evidence": "test_rate_limiter_blocks_after_threshold passed in test/f001.test.js",
+          "evidence_hash": "sha256:5f0321bc2396d169",
+          "verified_by": "verifier",
+          "verified_at": "2026-02-06T20:28:45.369Z"
         }
       }
     },
@@ -44,8 +55,13 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login endpoint accessible", "List of known breached credentials"],
-        "steps": ["Attempt login with 1000 different email/password pairs from rotating IPs"],
+        "preconditions": [
+          "Login endpoint accessible",
+          "List of known breached credentials"
+        ],
+        "steps": [
+          "Attempt login with 1000 different email/password pairs from rotating IPs"
+        ],
         "expected_if_vulnerable": "Successful logins for any valid credentials without detection"
       },
       "evidence": {
@@ -53,12 +69,17 @@
         "criteria": "Logs show anomaly detection triggered; accounts locked or CAPTCHA required"
       },
       "status": {
-        "state": "claimed",
+        "state": "unaddressed",
         "guardrail": {
           "design": "Account-level rate limiting tracks failed attempts per email address, independent of IP. Locks account after 5 failed attempts per hour",
           "location": "src/lib/rate-limit.ts:20-30, src/app/api/auth/login/route.ts:51-65",
           "implemented_by": "builder-session-001",
           "implemented_at": "2026-02-05T00:00:00Z"
+        },
+        "rejection": {
+          "reason": "Test failed: account-level rate limiting not implemented",
+          "rejected_by": "verifier",
+          "rejected_at": "2026-02-06T20:28:59.070Z"
         }
       }
     },
@@ -71,7 +92,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login endpoint accessible"],
+        "preconditions": [
+          "Login endpoint accessible"
+        ],
         "steps": [
           "Submit login with non-existent username",
           "Submit login with valid username but wrong password",
@@ -84,12 +107,18 @@
         "criteria": "Both responses identical in content, status, and timing (within 50ms)"
       },
       "status": {
-        "state": "claimed",
+        "state": "accepted_risk",
         "guardrail": {
           "design": "Generic error constant GENERIC_AUTH_ERROR = 'Invalid email or password' used for all auth failures",
           "location": "src/lib/validation.ts:75-76, src/app/api/auth/login/route.ts:85",
           "implemented_by": "builder-session-001",
           "implemented_at": "2026-02-05T00:00:00Z"
+        },
+        "risk_acceptance": {
+          "reason": "Low risk for internal app",
+          "accepted_by": "kaleb@example.com",
+          "accepted_at": "2026-02-06T20:29:13.438Z",
+          "review_by": null
         }
       }
     },
@@ -102,7 +131,10 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login endpoint accessible", "One known valid username"],
+        "preconditions": [
+          "Login endpoint accessible",
+          "One known valid username"
+        ],
         "steps": [
           "Send 100 requests with valid username + wrong password, measure avg response time",
           "Send 100 requests with invalid username, measure avg response time",
@@ -133,8 +165,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Access to login page"],
-        "steps": ["Attempt to submit login form over HTTP"],
+        "preconditions": [
+          "Access to login page"
+        ],
+        "steps": [
+          "Attempt to submit login form over HTTP"
+        ],
         "expected_if_vulnerable": "Credentials transmitted in plaintext"
       },
       "evidence": {
@@ -160,8 +196,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Registration or password change endpoint accessible"],
-        "steps": ["Attempt to set password to 'password123'"],
+        "preconditions": [
+          "Registration or password change endpoint accessible"
+        ],
+        "steps": [
+          "Attempt to set password to 'password123'"
+        ],
         "expected_if_vulnerable": "Weak password accepted"
       },
       "evidence": {
@@ -187,7 +227,10 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Access to server logs", "Login endpoint accessible"],
+        "preconditions": [
+          "Access to server logs",
+          "Login endpoint accessible"
+        ],
         "steps": [
           "Submit login with unique password marker (e.g., 'MARKER_PASSWORD_TEST_12345')",
           "Search all log files for the marker"
@@ -217,7 +260,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Authenticated session"],
+        "preconditions": [
+          "Authenticated session"
+        ],
         "steps": [
           "Copy session token",
           "Logout via UI or API",
@@ -248,7 +293,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["User logged in on two devices/sessions"],
+        "preconditions": [
+          "User logged in on two devices/sessions"
+        ],
         "steps": [
           "Change password on device A",
           "Attempt to access protected resource on device B with old session"
@@ -278,7 +325,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Ability to generate multiple session tokens"],
+        "preconditions": [
+          "Ability to generate multiple session tokens"
+        ],
         "steps": [
           "Generate 1000 session tokens",
           "Analyze for patterns, sequential components, or insufficient entropy"
@@ -308,7 +357,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Authenticated session"],
+        "preconditions": [
+          "Authenticated session"
+        ],
         "steps": [
           "Navigate through application",
           "Check browser history and Referer headers for token leakage"
@@ -338,8 +389,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Authenticated session"],
-        "steps": ["Inspect Set-Cookie header for session cookie"],
+        "preconditions": [
+          "Authenticated session"
+        ],
+        "steps": [
+          "Inspect Set-Cookie header for session cookie"
+        ],
         "expected_if_vulnerable": "Missing HttpOnly, Secure, or SameSite flag"
       },
       "evidence": {
@@ -365,7 +420,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Ability to obtain a valid JWT"],
+        "preconditions": [
+          "Ability to obtain a valid JWT"
+        ],
         "steps": [
           "Modify JWT header to use 'none' algorithm, submit to protected endpoint",
           "Attempt to crack HS256 secret with common wordlist"
@@ -395,7 +452,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Ability to obtain tokens"],
+        "preconditions": [
+          "Ability to obtain tokens"
+        ],
         "steps": [
           "Decode JWT and check exp claim",
           "Wait beyond expected expiry and test token"
@@ -425,7 +484,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Valid refresh token"],
+        "preconditions": [
+          "Valid refresh token"
+        ],
         "steps": [
           "Use refresh token to get new access token",
           "Attempt to use same refresh token again"
@@ -455,7 +516,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["OAuth login flow accessible"],
+        "preconditions": [
+          "OAuth login flow accessible"
+        ],
         "steps": [
           "Initiate OAuth flow, capture redirect URL",
           "Modify or remove state parameter",
@@ -486,7 +549,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["OAuth login flow accessible"],
+        "preconditions": [
+          "OAuth login flow accessible"
+        ],
         "steps": [
           "Modify redirect_uri to attacker-controlled domain",
           "Attempt OAuth flow with modified redirect"
@@ -516,8 +581,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Captured authorization code"],
-        "steps": ["Attempt to exchange same authorization code twice"],
+        "preconditions": [
+          "Captured authorization code"
+        ],
+        "steps": [
+          "Attempt to exchange same authorization code twice"
+        ],
         "expected_if_vulnerable": "Second exchange succeeds"
       },
       "evidence": {
@@ -543,8 +612,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Internal user account without MFA configured"],
-        "steps": ["Attempt to login with only username and password"],
+        "preconditions": [
+          "Internal user account without MFA configured"
+        ],
+        "steps": [
+          "Attempt to login with only username and password"
+        ],
         "expected_if_vulnerable": "Login succeeds without MFA challenge"
       },
       "evidence": {
@@ -570,7 +643,10 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["MFA-enabled account", "Valid MFA code"],
+        "preconditions": [
+          "MFA-enabled account",
+          "Valid MFA code"
+        ],
         "steps": [
           "Complete login with MFA code",
           "Immediately attempt login again with same code"
@@ -600,8 +676,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Account at MFA challenge stage"],
-        "steps": ["Submit 100 incorrect MFA codes in rapid succession"],
+        "preconditions": [
+          "Account at MFA challenge stage"
+        ],
+        "steps": [
+          "Submit 100 incorrect MFA codes in rapid succession"
+        ],
         "expected_if_vulnerable": "All attempts processed without lockout"
       },
       "evidence": {
@@ -627,8 +707,12 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login form accessible"],
-        "steps": ["Submit username: ' OR '1'='1' -- and any password"],
+        "preconditions": [
+          "Login form accessible"
+        ],
+        "steps": [
+          "Submit username: ' OR '1'='1' -- and any password"
+        ],
         "expected_if_vulnerable": "Login succeeds or database error returned"
       },
       "evidence": {
@@ -654,8 +738,13 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login form accessible"],
-        "steps": ["Submit username: <script>alert('xss')</script>", "Check if script executes in error message"],
+        "preconditions": [
+          "Login form accessible"
+        ],
+        "steps": [
+          "Submit username: <script>alert('xss')</script>",
+          "Check if script executes in error message"
+        ],
         "expected_if_vulnerable": "JavaScript executes in browser"
       },
       "evidence": {
@@ -681,7 +770,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Login form accessible"],
+        "preconditions": [
+          "Login form accessible"
+        ],
         "steps": [
           "Create HTML page on different origin with form posting to login endpoint",
           "Submit form from attacker page"
@@ -711,7 +802,9 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Access to audit logs"],
+        "preconditions": [
+          "Access to audit logs"
+        ],
         "steps": [
           "Attempt successful login",
           "Attempt failed login",
@@ -742,8 +835,13 @@
         "falsifiable": true
       },
       "repro": {
-        "preconditions": ["Valid user account"],
-        "steps": ["Trigger lockout via repeated failed attempts", "Attempt recovery as legitimate user"],
+        "preconditions": [
+          "Valid user account"
+        ],
+        "steps": [
+          "Trigger lockout via repeated failed attempts",
+          "Attempt recovery as legitimate user"
+        ],
         "expected_if_vulnerable": "No recovery path or permanent lockout"
       },
       "evidence": {

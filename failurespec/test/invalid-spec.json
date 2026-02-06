@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "feature": "Test feature"
+  },
+  "failures": [
+    {
+      "id": "BAD_ID",
+      "title": "This title is way too long and exceeds the eighty character limit that should be enforced by the validator",
+      "severity": "extreme",
+      "oracle": {
+        "condition": "should be secure"
+      },
+      "repro": {
+        "steps": []
+      },
+      "evidence": {
+        "type": "invalid_type"
+      },
+      "ownership": "inherited"
+    },
+    {
+      "id": "F001",
+      "title": "Duplicate ID test",
+      "severity": "critical",
+      "status": {
+        "state": "verified"
+      }
+    },
+    {
+      "id": "F001",
+      "title": "Another with same ID",
+      "severity": "high",
+      "status": {
+        "state": "accepted_risk"
+      }
+    }
+  ]
+}

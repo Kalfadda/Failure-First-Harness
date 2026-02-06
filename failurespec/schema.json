@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://failurespec.org/v1/schema.json",
+  "title": "FailureSpec",
+  "description": "Failure specification for the Failure-First Harness",
+  "type": "object",
+  "required": ["version", "metadata", "failures"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["feature", "created_by"],
+      "properties": {
+        "feature": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frozen_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "frozen_commit": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/failure"
+      }
+    },
+    "discoveries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/discovery"
+      }
+    }
+  },
+  "$defs": {
+    "failure": {
+      "type": "object",
+      "required": ["id", "title", "severity", "oracle", "repro", "evidence"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^F[0-9]{3}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"]
+        },
+        "description": {
+          "type": "string"
+        },
+        "oracle": {
+          "type": "object",
+          "required": ["condition", "falsifiable"],
+          "properties": {
+            "condition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "falsifiable": {
+              "type": "boolean"
+            }
+          }
+        },
+        "repro": {
+          "type": "object",
+          "required": ["preconditions", "steps", "expected_if_vulnerable"],
+          "properties": {
+            "preconditions": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "steps": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 1
+            },
+            "expected_if_vulnerable": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "required": ["type", "criteria"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["unit_test", "integration_test", "e2e_test", "fuzz", "load_test", "manual", "code_review", "security_test", "timing_analysis", "log_analysis", "log_search", "network_capture", "header_inspection", "traffic_analysis", "token_inspection", "manual_test", "log_inspection"]
+            },
+            "criteria": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "impact": { "type": "string" },
+        "likelihood": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        },
+        "blast_radius": {
+          "type": "string",
+          "enum": ["system", "service", "component"]
+        },
+        "category": {
+          "type": "string",
+          "enum": ["security", "validation", "resource", "integration", "logic"]
+        },
+        "detection": { "type": "string" },
+        "ownership": {
+          "type": "string",
+          "enum": ["owned", "inherited", "integration"]
+        },
+        "inherited_from": {
+          "type": "object",
+          "properties": {
+            "source": { "type": "string" },
+            "version": { "type": "string" },
+            "original_id": { "type": "string" }
+          }
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["unaddressed", "in_progress", "claimed", "verified", "rejected", "accepted_risk"]
+        },
+        "guardrail": {
+          "type": "object",
+          "properties": {
+            "design": { "type": "string" },
+            "location": { "type": "string" },
+            "implemented_by": { "type": "string" },
+            "implemented_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "verification": {
+          "type": "object",
+          "properties": {
+            "method": { "type": "string" },
+            "evidence": { "type": "string" },
+            "evidence_hash": { "type": "string" },
+            "verified_by": { "type": "string" },
+            "verified_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "risk_acceptance": {
+          "type": "object",
+          "properties": {
+            "reason": { "type": "string" },
+            "accepted_by": { "type": "string" },
+            "accepted_at": { "type": "string", "format": "date-time" },
+            "review_by": { "type": "string", "format": "date-time" }
+          }
+        }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["id", "description", "discovered_by", "discovered_at", "disposition"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^D[0-9]{3}$"
+        },
+        "description": { "type": "string" },
+        "discovered_by": { "type": "string" },
+        "discovered_at": { "type": "string", "format": "date-time" },
+        "disposition": {
+          "type": "string",
+          "enum": ["pending", "add_to_next", "accepted_risk", "duplicate"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://failurespec.org/v1/schema.json",
+  "version": "1.0",
+  "metadata": {
+    "feature": "Example webhook receiver",
+    "created_by": "adversary-test",
+    "frozen_at": "2026-02-06T20:24:08.563Z",
+    "frozen_commit": "0b75b0265b6cf14c368ffa98d27e4c009bbbf860"
+  },
+  "failures": [
+    {
+      "id": "F001",
+      "title": "Missing signature validation",
+      "severity": "critical",
+      "description": "Webhook accepts requests without valid signature",
+      "oracle": {
+        "condition": "Requests without valid HMAC-SHA256 signature return 401",
+        "falsifiable": true
+      },
+      "repro": {
+        "preconditions": [
+          "Webhook endpoint deployed"
+        ],
+        "steps": [
+          "Send POST request without X-Signature header",
+          "Observe response code"
+        ],
+        "expected_if_vulnerable": "Request returns 200 OK"
+      },
+      "evidence": {
+        "type": "integration_test",
+        "criteria": "Test sends unsigned request, asserts 401 response"
+      },
+      "impact": "Arbitrary webhook payloads accepted; data corruption",
+      "detection": "Monitor for requests with missing signatures"
+    },
+    {
+      "id": "F002",
+      "title": "Timing attack on signature comparison",
+      "severity": "high",
+      "oracle": {
+        "condition": "Signature comparison uses constant-time algorithm",
+        "falsifiable": true
+      },
+      "repro": {
+        "preconditions": [
+          "Webhook endpoint deployed",
+          "Valid payload known"
+        ],
+        "steps": [
+          "Send 1000 requests with signatures of varying correctness",
+          "Measure response times",
+          "Analyze for timing correlation"
+        ],
+        "expected_if_vulnerable": "Statistically significant timing difference based on correct prefix length"
+      },
+      "evidence": {
+        "type": "code_review",
+        "criteria": "Implementation uses crypto.timingSafeEqual or equivalent"
+      },
+      "impact": "Signature can be brute-forced one character at a time",
+      "detection": "Difficult to detect; code review required"
+    }
+  ]
+}

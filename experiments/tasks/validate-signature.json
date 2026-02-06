@@ -1,0 +1,91 @@
+{
+  "id": "task-001",
+  "name": "Webhook Signature Validator",
+  "description": "Implement a function that validates HMAC-SHA256 webhook signatures",
+
+  "specification": {
+    "function_name": "validateSignature",
+    "inputs": {
+      "payload": "string - the raw request body",
+      "signature": "string - the X-Signature header value",
+      "secret": "string - the shared secret key"
+    },
+    "outputs": {
+      "valid": "boolean - true if signature is valid"
+    },
+    "requirements": [
+      "Compare HMAC-SHA256 of payload against provided signature",
+      "Return true only if signatures match",
+      "Handle missing or malformed inputs gracefully"
+    ]
+  },
+
+  "ground_truth_failures": [
+    {
+      "id": "GT001",
+      "title": "Missing signature header",
+      "description": "Function accepts request when signature is null/undefined",
+      "test": "validateSignature('payload', null, 'secret') should return false"
+    },
+    {
+      "id": "GT002",
+      "title": "Empty signature header",
+      "description": "Function accepts request when signature is empty string",
+      "test": "validateSignature('payload', '', 'secret') should return false"
+    },
+    {
+      "id": "GT003",
+      "title": "Timing attack via string comparison",
+      "description": "Function uses === or indexOf instead of constant-time comparison",
+      "test": "Implementation must use crypto.timingSafeEqual or equivalent"
+    },
+    {
+      "id": "GT004",
+      "title": "Wrong encoding",
+      "description": "Function uses wrong encoding (base64 vs hex) for comparison",
+      "test": "Signature format must match expected encoding"
+    },
+    {
+      "id": "GT005",
+      "title": "Missing secret validation",
+      "description": "Function proceeds when secret is null/undefined/empty",
+      "test": "validateSignature('payload', 'sig', null) should return false"
+    },
+    {
+      "id": "GT006",
+      "title": "Payload type confusion",
+      "description": "Function doesn't handle non-string payload",
+      "test": "validateSignature(123, 'sig', 'secret') should return false or throw"
+    },
+    {
+      "id": "GT007",
+      "title": "Algorithm confusion",
+      "description": "Function accepts signatures from different algorithms",
+      "test": "SHA1 signature should not validate as SHA256"
+    },
+    {
+      "id": "GT008",
+      "title": "Signature prefix bypass",
+      "description": "Function only checks if signature starts with expected value",
+      "test": "Partial match should not validate"
+    },
+    {
+      "id": "GT009",
+      "title": "Case sensitivity issues",
+      "description": "Function fails on uppercase/lowercase hex differences",
+      "test": "Both 'abc' and 'ABC' hex should be handled consistently"
+    },
+    {
+      "id": "GT010",
+      "title": "Buffer length mismatch",
+      "description": "Function crashes or misbehaves on different length signatures",
+      "test": "Short or long signatures should return false, not crash"
+    }
+  ],
+
+  "test_harness": {
+    "language": "javascript",
+    "setup": "const crypto = require('crypto');",
+    "generate_valid_signature": "crypto.createHmac('sha256', secret).update(payload).digest('hex')"
+  }
+}

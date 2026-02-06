@@ -1,0 +1,13 @@
+{
+  "task": "task-001",
+  "total_ground_truth": 10,
+  "identified": 9,
+  "verified": 8,
+  "missed": 1,
+  "coverage": "90.0%",
+  "false_completion_rate": "10.0%",
+  "verification_accuracy": "100.0%",
+  "missed_failures": [
+    "GT007"
+  ]
+}

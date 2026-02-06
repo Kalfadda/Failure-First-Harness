@@ -1,0 +1,45 @@
+{
+  "spec_file": ".failure-first/failures.json",
+  "feature": "Stripe-style webhook receiver",
+  "timestamp": "2026-02-06T20:32:30.055Z",
+  "summary": {
+    "total": 4,
+    "verified": 0,
+    "failed": 0,
+    "skipped": 4
+  },
+  "results": [
+    {
+      "failure_id": "F001",
+      "failure_title": "Missing signature validation",
+      "status": "unaddressed",
+      "verification_attempted": "2026-02-06T20:32:30.054Z",
+      "skipped": true,
+      "reason": "State is \"unaddressed\", not \"claimed\""
+    },
+    {
+      "failure_id": "F002",
+      "failure_title": "Timing attack on signature comparison",
+      "status": "unaddressed",
+      "verification_attempted": "2026-02-06T20:32:30.055Z",
+      "skipped": true,
+      "reason": "State is \"unaddressed\", not \"claimed\""
+    },
+    {
+      "failure_id": "F003",
+      "failure_title": "Replay attack with valid signature",
+      "status": "unaddressed",
+      "verification_attempted": "2026-02-06T20:32:30.055Z",
+      "skipped": true,
+      "reason": "State is \"unaddressed\", not \"claimed\""
+    },
+    {
+      "failure_id": "F004",
+      "failure_title": "No request body size limit",
+      "status": "unaddressed",
+      "verification_attempted": "2026-02-06T20:32:30.055Z",
+      "skipped": true,
+      "reason": "State is \"unaddressed\", not \"claimed\""
+    }
+  ]
+}

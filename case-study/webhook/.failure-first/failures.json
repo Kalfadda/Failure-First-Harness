@@ -1,0 +1,136 @@
+{
+  "$schema": "https://failurespec.org/v1/schema.json",
+  "version": "1.0",
+  "metadata": {
+    "feature": "Stripe-style webhook receiver",
+    "created_by": "adversary",
+    "frozen_at": "2026-02-06T20:32:47.327Z",
+    "frozen_commit": "0b75b0265b6cf14c368ffa98d27e4c009bbbf860"
+  },
+  "failures": [
+    {
+      "id": "F001",
+      "title": "Missing signature validation",
+      "severity": "critical",
+      "description": "Webhook accepts requests without valid HMAC signature",
+      "oracle": {
+        "condition": "Requests without valid X-Signature header return 401 and do not modify state",
+        "falsifiable": true
+      },
+      "repro": {
+        "preconditions": [
+          "Webhook endpoint deployed"
+        ],
+        "steps": [
+          "Send POST to /webhook without X-Signature header",
+          "Check response code",
+          "Check if order state was modified"
+        ],
+        "expected_if_vulnerable": "Request returns 200 OK and state is modified"
+      },
+      "evidence": {
+        "type": "integration_test",
+        "criteria": "Test sends unsigned request, asserts 401 response, asserts no state change"
+      },
+      "impact": "Arbitrary webhook events can be forged; financial fraud",
+      "detection": "Monitor for requests with missing/invalid signatures",
+      "status": {
+        "state": "verified",
+        "guardrail": {
+          "design": "HMAC-SHA256 signature validation with timingSafeEqual",
+          "location": "src/webhook-secure.js:30-55",
+          "implemented_by": "builder",
+          "implemented_at": "2026-02-06T20:32:56.075Z"
+        },
+        "verification": {
+          "method": "Manual verification",
+          "evidence": "test/f001.test.js: All 4 tests passed - unsigned rejected, invalid rejected, valid accepted, replay rejected",
+          "evidence_hash": "sha256:c8dc457498b98cff",
+          "verified_by": "verifier",
+          "verified_at": "2026-02-06T20:33:33.387Z"
+        }
+      }
+    },
+    {
+      "id": "F002",
+      "title": "Timing attack on signature comparison",
+      "severity": "high",
+      "description": "String comparison leaks signature information via timing",
+      "oracle": {
+        "condition": "Signature comparison uses constant-time algorithm",
+        "falsifiable": true
+      },
+      "repro": {
+        "preconditions": [
+          "Webhook endpoint deployed",
+          "Valid payload known"
+        ],
+        "steps": [
+          "Send requests with signatures that match N characters",
+          "Measure response times for N=0,1,2,3...",
+          "Check for correlation between match length and time"
+        ],
+        "expected_if_vulnerable": "Response time increases with correct prefix length"
+      },
+      "evidence": {
+        "type": "code_review",
+        "criteria": "Implementation uses crypto.timingSafeEqual"
+      },
+      "impact": "Signature can be brute-forced character by character",
+      "detection": "Difficult; requires code review"
+    },
+    {
+      "id": "F003",
+      "title": "Replay attack with valid signature",
+      "severity": "high",
+      "description": "Same signed request can be replayed multiple times",
+      "oracle": {
+        "condition": "Each webhook event can only be processed once; replays are rejected",
+        "falsifiable": true
+      },
+      "repro": {
+        "preconditions": [
+          "Valid signed webhook request captured"
+        ],
+        "steps": [
+          "Send the valid signed request",
+          "Send the exact same request again",
+          "Check if second request is processed"
+        ],
+        "expected_if_vulnerable": "Second request succeeds and modifies state again"
+      },
+      "evidence": {
+        "type": "integration_test",
+        "criteria": "Test sends same request twice, second returns 409 Conflict"
+      },
+      "impact": "Duplicate payments credited; inventory manipulation",
+      "detection": "Monitor for duplicate event IDs in logs"
+    },
+    {
+      "id": "F004",
+      "title": "No request body size limit",
+      "severity": "medium",
+      "description": "Endpoint accepts arbitrarily large payloads",
+      "oracle": {
+        "condition": "Requests larger than 1MB are rejected with 413",
+        "falsifiable": true
+      },
+      "repro": {
+        "preconditions": [
+          "Webhook endpoint deployed"
+        ],
+        "steps": [
+          "Send POST with 10MB payload",
+          "Check if server accepts it"
+        ],
+        "expected_if_vulnerable": "Server accepts large payload, potentially crashes"
+      },
+      "evidence": {
+        "type": "integration_test",
+        "criteria": "Test sends oversized payload, asserts 413 response"
+      },
+      "impact": "Memory exhaustion; denial of service",
+      "detection": "Monitor memory usage and request sizes"
+    }
+  ]
+}

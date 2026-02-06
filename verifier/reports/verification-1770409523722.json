@@ -1,0 +1,405 @@
+{
+  "spec_file": ".failure-first/failures.json",
+  "feature": "Login page with username/password and OAuth for internal users (public-facing)",
+  "timestamp": "2026-02-06T20:25:23.722Z",
+  "summary": {
+    "total": 26,
+    "verified": 1,
+    "failed": 25,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "failure_id": "F001",
+      "failure_title": "Brute force attack on password login",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.715Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F001",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F001"
+    },
+    {
+      "failure_id": "F002",
+      "failure_title": "Credential stuffing with known email/password pairs",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "log_analysis",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F003",
+      "failure_title": "Username enumeration via error messages",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "manual_test",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F004",
+      "failure_title": "Username enumeration via timing side-channel",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "timing_analysis",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F005",
+      "failure_title": "Password transmitted without TLS",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "network_capture",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F006",
+      "failure_title": "Weak password accepted at registration/change",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F006",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F006"
+    },
+    {
+      "failure_id": "F007",
+      "failure_title": "Password logged in server logs or error messages",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "log_search",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F008",
+      "failure_title": "Session not invalidated on logout",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.717Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F008",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F008"
+    },
+    {
+      "failure_id": "F009",
+      "failure_title": "Session not invalidated on password change",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.718Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F009",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F009"
+    },
+    {
+      "failure_id": "F010",
+      "failure_title": "Session token predictable or insufficiently random",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.718Z",
+      "evidence_type": "code_review",
+      "verification_result": {
+        "success": true,
+        "method": "External dependency - delegated verification",
+        "evidence": "Implementation delegated to: Supabase infrastructure (external)",
+        "evidence_hash": "sha256:92bdbb8f4ae65144",
+        "note": "External implementations require separate verification"
+      },
+      "verified": true,
+      "verification": {
+        "method": "External dependency - delegated verification",
+        "evidence": "Implementation delegated to: Supabase infrastructure (external)",
+        "evidence_hash": "sha256:92bdbb8f4ae65144",
+        "verified_by": "verifier-runner",
+        "verified_at": "2026-02-06T20:25:23.719Z"
+      }
+    },
+    {
+      "failure_id": "F011",
+      "failure_title": "Session token exposed in URL",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "traffic_analysis",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F012",
+      "failure_title": "Session cookie missing security flags",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "header_inspection",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F013",
+      "failure_title": "JWT signed with weak algorithm or secret",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "security_test",
+      "verification_result": {
+        "success": false,
+        "error": "No security test found - create test file or run manual security assessment",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No security test found - create test file or run manual security assessment"
+    },
+    {
+      "failure_id": "F014",
+      "failure_title": "JWT/token has no expiration or excessive lifetime",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "token_inspection",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F015",
+      "failure_title": "Refresh token reuse after rotation",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F015",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F015"
+    },
+    {
+      "failure_id": "F016",
+      "failure_title": "OAuth state parameter missing or not validated",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F016",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F016"
+    },
+    {
+      "failure_id": "F017",
+      "failure_title": "OAuth redirect_uri not strictly validated",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.719Z",
+      "evidence_type": "security_test",
+      "verification_result": {
+        "success": false,
+        "error": "No security test found - create test file or run manual security assessment",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No security test found - create test file or run manual security assessment"
+    },
+    {
+      "failure_id": "F018",
+      "failure_title": "OAuth token exchange vulnerable to code injection",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.720Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F018",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F018"
+    },
+    {
+      "failure_id": "F019",
+      "failure_title": "No MFA enforcement for privileged accounts",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.720Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F019",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F019"
+    },
+    {
+      "failure_id": "F020",
+      "failure_title": "MFA code can be reused",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.720Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F020",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F020"
+    },
+    {
+      "failure_id": "F021",
+      "failure_title": "MFA brute force not rate-limited",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.721Z",
+      "evidence_type": "integration_test",
+      "verification_result": {
+        "success": false,
+        "error": "No test file found for F021",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No test file found for F021"
+    },
+    {
+      "failure_id": "F022",
+      "failure_title": "SQL injection in login form",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.721Z",
+      "evidence_type": "security_test",
+      "verification_result": {
+        "success": false,
+        "error": "No security test found - create test file or run manual security assessment",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No security test found - create test file or run manual security assessment"
+    },
+    {
+      "failure_id": "F023",
+      "failure_title": "XSS in login error messages",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.721Z",
+      "evidence_type": "security_test",
+      "verification_result": {
+        "success": false,
+        "error": "No security test found - create test file or run manual security assessment",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No security test found - create test file or run manual security assessment"
+    },
+    {
+      "failure_id": "F024",
+      "failure_title": "CSRF on login form",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.721Z",
+      "evidence_type": "security_test",
+      "verification_result": {
+        "success": false,
+        "error": "No security test found - create test file or run manual security assessment",
+        "evidence": null
+      },
+      "verified": false,
+      "rejection_reason": "No security test found - create test file or run manual security assessment"
+    },
+    {
+      "failure_id": "F025",
+      "failure_title": "Login audit log missing or incomplete",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.721Z",
+      "evidence_type": "log_inspection",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    },
+    {
+      "failure_id": "F026",
+      "failure_title": "Account lockout can be used for denial of service",
+      "status": "claimed",
+      "verification_attempted": "2026-02-06T20:25:23.721Z",
+      "evidence_type": "manual_test",
+      "verification_result": {
+        "success": false,
+        "error": "Manual evidence type requires human verification",
+        "evidence": null,
+        "note": "Convert to automated test for CI verification"
+      },
+      "verified": false,
+      "rejection_reason": "Manual evidence type requires human verification",
+      "note": "Convert to automated test for CI verification"
+    }
+  ]
+}
