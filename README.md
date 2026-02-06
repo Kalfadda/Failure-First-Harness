@@ -2,7 +2,7 @@
 
 Separation of powers for agentic software development.
 
-> **Note:** This is an experimental concept that emerged from exploring governance patterns for AI-assisted development. The hypothesis—that reliability is fundamentally a governance problem rather than a prompting problem—seemed worth rapidly prototyping and testing. This repository exists to facilitate that exploration and hopefully lead to interesting discoveries about how we can build more reliable agentic AI systems.
+> **Note:** This is an experimental concept that emerged from exploring governance patterns for AI-assisted development. The hypothesis -that reliability is fundamentally a governance problem rather than a prompting problem -seemed worth rapidly prototyping and testing. This repository exists to facilitate that exploration and hopefully lead to interesting discoveries about how we can build more reliable agentic AI systems.
 
 ## The problem
 
@@ -23,16 +23,16 @@ Better prompts don't fix incentive misalignment.
 
 The Failure-First Harness applies separation of powers to agentic workflows:
 
-1. **A role that defines what can go wrong** — frozen before implementation begins
-2. **A role that implements fixes** — cannot certify its own work
-3. **A role that verifies via adversarial evidence** — independent, with execution tools
-4. **A role that resolves disputes and accepts risk** — human authority, auditable
+1. **A role that defines what can go wrong**  - frozen before implementation begins
+2. **A role that implements fixes**  - cannot certify its own work
+3. **A role that verifies via adversarial evidence**  - independent, with execution tools
+4. **A role that resolves disputes and accepts risk**  - human authority, auditable
 
 This is falsifiable. Projects using the harness should exhibit:
 
-- **Lower false completion rates** — fewer "complete" claims where critical failures remain unaddressed
-- **Higher verification accuracy** — fewer VERIFIED statuses that fail independent testing
-- **Greater scope stability** — fewer mid-implementation changes to requirements
+- **Lower false completion rates**  - fewer "complete" claims where critical failures remain unaddressed
+- **Higher verification accuracy**  - fewer VERIFIED statuses that fail independent testing
+- **Greater scope stability**  - fewer mid-implementation changes to requirements
 
 If controlled experiments show no improvement on these metrics, or if the overhead exceeds the reliability gain, the thesis is wrong.
 
@@ -108,7 +108,7 @@ Goal:   Address failures by priority
 
 Constraints:
 - Cannot modify the failure spec
-- Cannot set VERIFIED — only CLAIMED
+- Cannot set VERIFIED  - only CLAIMED
 - Must commit after each failure addressed
 - Logs discoveries to separate file
 
@@ -156,7 +156,7 @@ Information asymmetry is necessary but not sufficient. If the verifier shares th
 | Mechanism | What it provides |
 |-----------|------------------|
 | Different model or vendor | Different training, different blind spots |
-| Execution tools | Can run tests, hit staging, fuzz — not just read code |
+| Execution tools | Can run tests, hit staging, fuzz  - not just read code |
 | Strict evidence rubric | Must produce artifacts, not assertions |
 | Human-in-the-loop for CRITICAL | Ultimate independence for highest severity |
 
@@ -322,10 +322,10 @@ If status.state is "accepted_risk", risk_acceptance must be populated.
 
 | Mechanism | Enforcement level |
 |-----------|-------------------|
-| Commit hash reference | Medium — modification creates different hash, detectable |
-| Content-addressed storage | Strong — content determines address, modification is new file |
-| Cryptographic signing | Strong — tampering breaks signature |
-| CI gate | Strong — PR blocked if frozen file modified |
+| Commit hash reference | Medium  - modification creates different hash, detectable |
+| Content-addressed storage | Strong  - content determines address, modification is new file |
+| Cryptographic signing | Strong  - tampering breaks signature |
+| CI gate | Strong  - PR blocked if frozen file modified |
 
 ### Handling discoveries
 
@@ -544,9 +544,9 @@ Templates accelerate adversary enumeration without becoming stale pre-built list
 
 ## Related work
 
-- **Anthropic's agent harness patterns** — addresses context exhaustion; this harness adds role separation and verification independence
-- **STRIDE/PASTA threat modeling** — systematic failure enumeration; this harness operationalizes it for agentic workflows
-- **Change control (ITIL, etc.)** — frozen requirements and scope management; this harness applies it to AI-generated code
+- **Anthropic's agent harness patterns**  - addresses context exhaustion; this harness adds role separation and verification independence
+- **STRIDE/PASTA threat modeling**  - systematic failure enumeration; this harness operationalizes it for agentic workflows
+- **Change control (ITIL, etc.)**  - frozen requirements and scope management; this harness applies it to AI-generated code
 
 ## Contributing
 
