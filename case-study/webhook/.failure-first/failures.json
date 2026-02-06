@@ -77,7 +77,16 @@
         "criteria": "Implementation uses crypto.timingSafeEqual"
       },
       "impact": "Signature can be brute-forced character by character",
-      "detection": "Difficult; requires code review"
+      "detection": "Difficult; requires code review",
+      "status": {
+        "state": "claimed",
+        "guardrail": {
+          "design": "crypto.timingSafeEqual for constant-time comparison",
+          "location": "src/webhook-secure.js:38-48",
+          "implemented_by": "builder",
+          "implemented_at": "2026-02-06T21:15:25.109Z"
+        }
+      }
     },
     {
       "id": "F003",
