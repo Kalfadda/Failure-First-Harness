@@ -2,6 +2,8 @@
 
 Separation of powers for agentic software development.
 
+> **Note:** This is an experimental concept that emerged from exploring governance patterns for AI-assisted development. The hypothesis—that reliability is fundamentally a governance problem rather than a prompting problem—seemed worth rapidly prototyping and testing. This repository exists to facilitate that exploration and hopefully lead to interesting discoveries about how we can build more reliable agentic AI systems.
+
 ## The problem
 
 Agentic coding workflows fail in predictable ways:
