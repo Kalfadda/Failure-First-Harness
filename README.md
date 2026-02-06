@@ -2,9 +2,15 @@
 
 Separation of powers for agentic software development.
 
-> **Note:** This is an experimental concept that emerged from exploring governance patterns for AI-assisted development. The hypothesis -that reliability is fundamentally a governance problem rather than a prompting problem -seemed worth rapidly prototyping and testing. This repository exists to facilitate that exploration and hopefully lead to interesting discoveries about how we can build more reliable agentic AI systems.
+## About
 
-## The problem
+This is an experimental framework exploring whether AI coding reliability is fundamentally a governance problem rather than a prompting problem. The idea emerged from observing how agentic workflows fail in predictable, structural ways that better prompts alone cannot fix.
+
+The hypothesis: by applying separation of powers (the same principle that makes human organizations accountable), we can build more reliable AI-assisted development workflows. This repository exists to rapidly prototype and test that idea, hopefully leading to interesting discoveries about agentic AI systems.
+
+**Status:** Experimental. The concepts here are untested at scale and may prove impractical. That's the point of the experiment.
+
+## The Problem
 
 Agentic coding workflows fail in predictable ways:
 
@@ -17,47 +23,47 @@ These aren't capability failures. They're structural conflicts of interest. The 
 
 Better prompts don't fix incentive misalignment.
 
-## The thesis
+## The Thesis
 
 **Reliability in AI-assisted development is a governance problem, not a prompting problem.**
 
 The Failure-First Harness applies separation of powers to agentic workflows:
 
-1. **A role that defines what can go wrong**  - frozen before implementation begins
-2. **A role that implements fixes**  - cannot certify its own work
-3. **A role that verifies via adversarial evidence**  - independent, with execution tools
-4. **A role that resolves disputes and accepts risk**  - human authority, auditable
+1. **Adversary**: Defines what can go wrong (frozen before implementation begins)
+2. **Builder**: Implements fixes (cannot certify its own work)
+3. **Verifier**: Verifies via adversarial evidence (independent, with execution tools)
+4. **Resolver**: Resolves disputes and accepts risk (human authority, auditable)
 
 This is falsifiable. Projects using the harness should exhibit:
 
-- **Lower false completion rates**  - fewer "complete" claims where critical failures remain unaddressed
-- **Higher verification accuracy**  - fewer VERIFIED statuses that fail independent testing
-- **Greater scope stability**  - fewer mid-implementation changes to requirements
+- **Lower false completion rates**: Fewer "complete" claims where critical failures remain unaddressed
+- **Higher verification accuracy**: Fewer VERIFIED statuses that fail independent testing
+- **Greater scope stability**: Fewer mid-implementation changes to requirements
 
 If controlled experiments show no improvement on these metrics, or if the overhead exceeds the reliability gain, the thesis is wrong.
 
-## The core mechanism
+## The Core Mechanism
 
 The harness enforces completion criteria through a state machine:
 
 ```
-UNADDRESSED ──▶ IN_PROGRESS ──▶ CLAIMED ──▶ VERIFIED
-                                   │            │
-                                   ▼            │
-                              UNADDRESSED       │
-                            (verifier rejects)  │
-                                                │
-                    ACCEPTED_RISK ◀─────────────┘
+UNADDRESSED --> IN_PROGRESS --> CLAIMED --> VERIFIED
+                                   |            |
+                                   v            |
+                              UNADDRESSED       |
+                            (verifier rejects)  |
+                                                |
+                    ACCEPTED_RISK <-------------+
                   (human authority only)
 ```
 
 **Why this matters:** The builder cannot set VERIFIED. Only the verifier can. Completion is mechanically impossible without independent verification of every critical failure.
 
-## Guarantees and non-guarantees
+## Guarantees and Non-Guarantees
 
 The harness provides **process guarantees**, not **outcome guarantees**. Conflating these loses credibility.
 
-### Process guarantees
+### Process Guarantees
 
 | Guarantee | Mechanism | Strength |
 |-----------|-----------|----------|
@@ -66,7 +72,7 @@ The harness provides **process guarantees**, not **outcome guarantees**. Conflat
 | Claims require evidence | Schema mandates evidence; empty evidence fails validation | Medium |
 | Decisions auditable | All state transitions logged with timestamps | Strong |
 
-### Outcome non-guarantees
+### Outcome Non-Guarantees
 
 | Non-guarantee | Why |
 |---------------|-----|
@@ -108,7 +114,7 @@ Goal:   Address failures by priority
 
 Constraints:
 - Cannot modify the failure spec
-- Cannot set VERIFIED  - only CLAIMED
+- Cannot set VERIFIED, only CLAIMED
 - Must commit after each failure addressed
 - Logs discoveries to separate file
 
@@ -147,7 +153,7 @@ Goal:   Resolve ambiguity, accept risk explicitly
 
 All resolver decisions are logged with identity and timestamp.
 
-## Verifier independence
+## Verifier Independence
 
 Information asymmetry is necessary but not sufficient. If the verifier shares the builder's blind spots, verification is theatre.
 
@@ -156,7 +162,7 @@ Information asymmetry is necessary but not sufficient. If the verifier shares th
 | Mechanism | What it provides |
 |-----------|------------------|
 | Different model or vendor | Different training, different blind spots |
-| Execution tools | Can run tests, hit staging, fuzz  - not just read code |
+| Execution tools | Can run tests, hit staging, fuzz (not just read code) |
 | Strict evidence rubric | Must produce artifacts, not assertions |
 | Human-in-the-loop for CRITICAL | Ultimate independence for highest severity |
 
@@ -241,7 +247,7 @@ discoveries:                        # Failures found during execution
     disposition: pending | add_to_next | accepted_risk | duplicate
 ```
 
-### Validation rules
+### Validation Rules
 
 ```
 REQUIRED fields must be non-empty.
@@ -314,31 +320,32 @@ If status.state is "accepted_risk", risk_acceptance must be populated.
 }
 ```
 
-## Frozen means frozen
+## Frozen Means Frozen
 
 "Frozen" is a social contract unless you enforce it technically.
 
-### Enforcement options
+### Enforcement Options
 
 | Mechanism | Enforcement level |
 |-----------|-------------------|
-| Commit hash reference | Medium  - modification creates different hash, detectable |
-| Content-addressed storage | Strong  - content determines address, modification is new file |
-| Cryptographic signing | Strong  - tampering breaks signature |
-| CI gate | Strong  - PR blocked if frozen file modified |
+| Commit hash reference | Medium: modification creates different hash, detectable |
+| Content-addressed storage | Strong: content determines address, modification is new file |
+| Cryptographic signing | Strong: tampering breaks signature |
+| CI gate | Strong: PR blocked if frozen file modified |
 
-### Handling discoveries
+### Handling Discoveries
 
 Failures discovered during building or verification are real. The harness routes them through controlled process:
 
 ```
 discoveries.json captures mid-flight findings
-  ↓
+  |
+  v
 Human reviews and decides:
-  → add_to_next: Include in next iteration's spec
-  → accepted_risk: Document and proceed
-  → duplicate: Already covered by existing failure
-  → restart: Expand scope, create new frozen spec
+  - add_to_next: Include in next iteration's spec
+  - accepted_risk: Document and proceed
+  - duplicate: Already covered by existing failure
+  - restart: Expand scope, create new frozen spec
 ```
 
 The default path is never to edit the frozen spec mid-run.
@@ -348,7 +355,7 @@ The default path is never to edit the frozen spec mid-run.
 "By priority" is not an algorithm. Here is one:
 
 ```
-PRIORITY = (severity × 1000) + (likelihood × 100) + (blast_radius × 10) - (verification_ease × 5)
+PRIORITY = (severity x 1000) + (likelihood x 100) + (blast_radius x 10) - (verification_ease x 5)
 
 severity:          critical=4, high=3, medium=2, low=1
 likelihood:        high=3, medium=2, low=1
@@ -358,7 +365,7 @@ verification_ease: trivial=3, moderate=2, hard=1
 
 **Key insight:** Hard-to-verify failures go earlier, not later. If you defer them, you run out of time and start accepting risk casually.
 
-## How this harness fails
+## How This Harness Fails
 
 The harness has failure modes. Acknowledging them is honest engineering.
 
@@ -386,17 +393,17 @@ This is not novel. It combines existing engineering practices:
 
 **One sentence:** The Failure-First Harness is an SDLC control system for AI agents, applying governance patterns that work for human organizations to agentic workflows.
 
-## Experimental validation
+## Experimental Validation
 
 To validate the thesis, we propose:
 
-### Experiment 1: False completion rate
+### Experiment 1: False Completion Rate
 
 **Setup:**
 - 30 tasks of moderate complexity
 - Hidden ground-truth failure list per task (10-15 failures)
 - Four conditions:
-  - A: Single agent (plan → implement → self-verify)
+  - A: Single agent (plan, implement, self-verify)
   - B: Two-agent (builder + verifier, same model)
   - C: Three-agent harness (same model)
   - D: Three-agent harness with independence (different verifier model)
@@ -409,7 +416,7 @@ To validate the thesis, we propose:
 
 **Hypothesis:** D > C > B > A
 
-### Experiment 2: Verification accuracy
+### Experiment 2: Verification Accuracy
 
 **Setup:** Take VERIFIED failures from Experiment 1
 
@@ -419,7 +426,7 @@ To validate the thesis, we propose:
 
 **Hypothesis:** D > C, both >> B
 
-### Experiment 3: Overhead ratio
+### Experiment 3: Overhead Ratio
 
 **Metric:** tokens(condition X) / tokens(baseline A)
 
@@ -451,13 +458,13 @@ Starter templates accelerate adversary enumeration:
 
 ```
 .claude/templates/
-├── webhook-receiver.yaml   # Payment callbacks, GitHub webhooks
-├── authentication.yaml     # Login, sessions, MFA, password reset
-├── file-upload.yaml        # Images, documents, attachments
-└── api-endpoint.yaml       # REST/GraphQL CRUD operations
+  webhook-receiver.yaml   # Payment callbacks, GitHub webhooks
+  authentication.yaml     # Login, sessions, MFA, password reset
+  file-upload.yaml        # Images, documents, attachments
+  api-endpoint.yaml       # REST/GraphQL CRUD operations
 ```
 
-## Reference implementation
+## Reference Implementation
 
 ### CLI
 
@@ -473,7 +480,7 @@ ffh discover "description"  # Log discovered failure
 ffh report                  # Generate status report
 ```
 
-### CI integration
+### CI Integration
 
 ```yaml
 # .github/workflows/failure-first.yml
@@ -487,11 +494,11 @@ ffh report                  # Generate status report
   run: ffh report --format markdown > failure-report.md
 ```
 
-## Starter templates
+## Starter Templates
 
 Pre-built templates prompt the adversary to consider failure classes:
 
-```
+```yaml
 # templates/webhook-receiver.yaml
 failure_classes:
   - authentication:
@@ -510,7 +517,7 @@ failure_classes:
 
 Templates accelerate adversary enumeration without becoming stale pre-built lists.
 
-## When to use
+## When to Use
 
 **Good candidates:**
 - Security-sensitive features
@@ -542,11 +549,11 @@ Templates accelerate adversary enumeration without becoming stale pre-built list
 - Automated red-team tooling
 - Cross-project failure inheritance
 
-## Related work
+## Related Work
 
-- **Anthropic's agent harness patterns**  - addresses context exhaustion; this harness adds role separation and verification independence
-- **STRIDE/PASTA threat modeling**  - systematic failure enumeration; this harness operationalizes it for agentic workflows
-- **Change control (ITIL, etc.)**  - frozen requirements and scope management; this harness applies it to AI-generated code
+- **Anthropic's agent harness patterns**: Addresses context exhaustion; this harness adds role separation and verification independence
+- **STRIDE/PASTA threat modeling**: Systematic failure enumeration; this harness operationalizes it for agentic workflows
+- **Change control (ITIL, etc.)**: Frozen requirements and scope management; this harness applies it to AI-generated code
 
 ## Contributing
 
