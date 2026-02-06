@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-02-06T21:45:18.271Z",
+  "runs": 20,
+  "results": {
+    "passwordReset": {
+      "summary": {
+        "A": {
+          "name": "Single Agent",
+          "avgIdentified": "5.8",
+          "avgVerified": "2.8",
+          "avgMissed": "6.2",
+          "coverage": "48.3%",
+          "falseCompletionRate": "51.7%",
+          "verificationRate": "48.3%"
+        },
+        "B": {
+          "name": "Builder + Verifier",
+          "avgIdentified": "8.3",
+          "avgVerified": "6.3",
+          "avgMissed": "3.6",
+          "coverage": "69.6%",
+          "falseCompletionRate": "30.4%",
+          "verificationRate": "74.9%"
+        },
+        "C": {
+          "name": "Failure-First Harness",
+          "avgIdentified": "10.6",
+          "avgVerified": "9.8",
+          "avgMissed": "1.4",
+          "coverage": "88.3%",
+          "falseCompletionRate": "11.7%",
+          "verificationRate": "92.0%"
+        }
+      },
+      "hypothesisHolds": true
+    },
+    "shoppingCart": {
+      "summary": {
+        "A": {
+          "name": "Single Agent",
+          "avgIdentified": "3.9",
+          "avgVerified": "1.7",
+          "avgMissed": "8.1",
+          "coverage": "32.5%",
+          "falseCompletionRate": "67.5%",
+          "verificationRate": "43.6%"
+        },
+        "B": {
+          "name": "Builder + Verifier",
+          "avgIdentified": "7.0",
+          "avgVerified": "4.8",
+          "avgMissed": "5.0",
+          "coverage": "57.9%",
+          "falseCompletionRate": "42.1%",
+          "verificationRate": "68.3%"
+        },
+        "C": {
+          "name": "Failure-First Harness",
+          "avgIdentified": "10.2",
+          "avgVerified": "9.1",
+          "avgMissed": "1.9",
+          "coverage": "84.6%",
+          "falseCompletionRate": "15.4%",
+          "verificationRate": "89.2%"
+        }
+      },
+      "hypothesisHolds": true
+    },
+    "adversarial": {
+      "summary": {
+        "A": {
+          "name": "Single Agent",
+          "avgIdentified": "1.1",
+          "avgVerified": "0.3",
+          "avgMissed": "10.8",
+          "coverage": "9.6%",
+          "falseCompletionRate": "90.4%",
+          "verificationRate": "30.4%"
+        },
+        "B": {
+          "name": "Builder + Verifier",
+          "avgIdentified": "2.6",
+          "avgVerified": "2.1",
+          "avgMissed": "9.3",
+          "coverage": "22.1%",
+          "falseCompletionRate": "77.9%",
+          "verificationRate": "79.2%"
+        },
+        "C": {
+          "name": "Failure-First Harness",
+          "avgIdentified": "7.0",
+          "avgVerified": "6.5",
+          "avgMissed": "5.0",
+          "coverage": "58.8%",
+          "falseCompletionRate": "41.3%",
+          "verificationRate": "92.2%"
+        }
+      },
+      "hypothesisHolds": true
+    }
+  },
+  "analysis": {
+    "averageCoverage": {
+      "A": "30.1%",
+      "B": "49.9%",
+      "C": "77.2%"
+    },
+    "averageFalseCompletion": {
+      "A": "69.9%",
+      "B": "50.1%",
+      "C": "22.8%"
+    },
+    "improvement": {
+      "BoverA": "19.7pp",
+      "CoverB": "27.4pp",
+      "CoverA": "47.1pp"
+    },
+    "hypothesisHolds": true
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "id": "stress-001",
+  "name": "Password Reset Flow",
+  "description": "Implement a secure password reset flow with email tokens",
+
+  "specification": {
+    "features": [
+      "User requests password reset with email",
+      "System sends email with reset token/link",
+      "User clicks link and sets new password",
+      "User can login with new password"
+    ],
+    "requirements": [
+      "Token must be cryptographically secure",
+      "Token must expire after reasonable time",
+      "Token must be single-use",
+      "Must not leak information about valid emails",
+      "Must be resistant to brute force"
+    ]
+  },
+
+  "ground_truth_failures": [
+    {
+      "id": "GT001",
+      "title": "Token not invalidated after use",
+      "description": "Reset token can be reused multiple times to change password repeatedly",
+      "severity": "critical",
+      "category": "replay",
+      "detection_difficulty": "medium",
+      "test": "Use same token twice, second use should fail"
+    },
+    {
+      "id": "GT002",
+      "title": "Token never expires",
+      "description": "Reset tokens remain valid indefinitely",
+      "severity": "critical",
+      "category": "expiration",
+      "detection_difficulty": "easy",
+      "test": "Token used after expiry window should fail"
+    },
+    {
+      "id": "GT003",
+      "title": "Token leaked in URL/Referer header",
+      "description": "Token visible in browser history, server logs, or leaked via Referer",
+      "severity": "high",
+      "category": "leakage",
+      "detection_difficulty": "medium",
+      "test": "Check token not in URL path, proper headers set"
+    },
+    {
+      "id": "GT004",
+      "title": "User enumeration via error messages",
+      "description": "Different response for valid vs invalid email reveals account existence",
+      "severity": "medium",
+      "category": "enumeration",
+      "detection_difficulty": "easy",
+      "test": "Same response for valid and invalid emails"
+    },
+    {
+      "id": "GT005",
+      "title": "Race condition on simultaneous resets",
+      "description": "Multiple reset requests create multiple valid tokens",
+      "severity": "high",
+      "category": "race",
+      "detection_difficulty": "hard",
+      "test": "Only most recent token should be valid"
+    },
+    {
+      "id": "GT006",
+      "title": "Token entropy too low",
+      "description": "Token is predictable or brute-forceable (e.g., sequential, timestamp-based)",
+      "severity": "critical",
+      "category": "crypto",
+      "detection_difficulty": "medium",
+      "test": "Token must have >= 128 bits entropy"
+    },
+    {
+      "id": "GT007",
+      "title": "No rate limiting on reset requests",
+      "description": "Attacker can flood email or brute-force tokens",
+      "severity": "high",
+      "category": "dos",
+      "detection_difficulty": "easy",
+      "test": "Rate limit after N requests per email/IP"
+    },
+    {
+      "id": "GT008",
+      "title": "Old password still works after reset",
+      "description": "Password change doesn't invalidate old credentials",
+      "severity": "critical",
+      "category": "session",
+      "detection_difficulty": "medium",
+      "test": "Login with old password should fail after reset"
+    },
+    {
+      "id": "GT009",
+      "title": "Token not bound to user",
+      "description": "Token from user A can reset password for user B",
+      "severity": "critical",
+      "category": "authorization",
+      "detection_difficulty": "medium",
+      "test": "Token must be bound to specific email"
+    },
+    {
+      "id": "GT010",
+      "title": "No password complexity on reset",
+      "description": "User can set weak password during reset",
+      "severity": "medium",
+      "category": "validation",
+      "detection_difficulty": "easy",
+      "test": "Weak passwords rejected during reset"
+    },
+    {
+      "id": "GT011",
+      "title": "Token stored in plain text",
+      "description": "Tokens stored unhashed in database",
+      "severity": "high",
+      "category": "storage",
+      "detection_difficulty": "hard",
+      "test": "Database should store hashed tokens only"
+    },
+    {
+      "id": "GT012",
+      "title": "Existing sessions not invalidated",
+      "description": "Active sessions remain valid after password reset",
+      "severity": "high",
+      "category": "session",
+      "detection_difficulty": "medium",
+      "test": "All sessions invalidated on password reset"
+    }
+  ],
+
+  "agent_prompts": {
+    "condition_A": "Implement a password reset flow. When done, verify your implementation handles security concerns.",
+    "condition_B_builder": "Implement a password reset flow with email tokens.",
+    "condition_B_verifier": "Review this password reset implementation for security issues.",
+    "condition_C_adversary": "Enumerate all ways a password reset flow can fail or be exploited.",
+    "condition_C_builder": "Implement fixes for these specific failures: [failure list]",
+    "condition_C_verifier": "Verify each claimed fix with concrete evidence."
+  }
+}

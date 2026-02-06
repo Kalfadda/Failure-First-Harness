@@ -1,0 +1,149 @@
+{
+  "id": "stress-003",
+  "name": "Adversarial Red Team: Deceptive Secure Code",
+  "description": "Code that LOOKS secure but contains subtle, chained vulnerabilities",
+
+  "specification": {
+    "scenario": "File upload and processing API",
+    "features": [
+      "File upload with validation",
+      "File type verification",
+      "Size limits",
+      "Filename sanitization",
+      "Path traversal protection",
+      "Authenticated access"
+    ],
+    "requirements": [
+      "Only allow specific file types",
+      "Prevent path traversal attacks",
+      "Limit file sizes",
+      "Sanitize filenames",
+      "Require authentication"
+    ]
+  },
+
+  "ground_truth_failures": [
+    {
+      "id": "GT001",
+      "title": "MIME type spoofing",
+      "description": "Validation checks Content-Type header, not actual file magic bytes",
+      "severity": "critical",
+      "category": "validation",
+      "detection_difficulty": "medium",
+      "deception_level": "high",
+      "notes": "Code LOOKS like it validates file type but trusts client header"
+    },
+    {
+      "id": "GT002",
+      "title": "Double extension bypass",
+      "description": "Sanitization removes .exe but not .exe.txt -> rename attack",
+      "severity": "high",
+      "category": "sanitization",
+      "detection_difficulty": "medium",
+      "deception_level": "high",
+      "notes": "Regex looks correct but misses edge case"
+    },
+    {
+      "id": "GT003",
+      "title": "Path traversal via encoded characters",
+      "description": "Checks for '../' but not URL-encoded or double-encoded variants",
+      "severity": "critical",
+      "category": "injection",
+      "detection_difficulty": "hard",
+      "deception_level": "very_high",
+      "notes": "Multiple defensive checks present but incomplete"
+    },
+    {
+      "id": "GT004",
+      "title": "Race condition on file check-then-use",
+      "description": "File validated then processed - attacker can swap file between",
+      "severity": "critical",
+      "category": "race",
+      "detection_difficulty": "hard",
+      "deception_level": "very_high",
+      "notes": "TOCTOU vulnerability hidden in async code"
+    },
+    {
+      "id": "GT005",
+      "title": "Null byte injection in filename",
+      "description": "Filename truncated at null byte, bypassing extension check",
+      "severity": "critical",
+      "category": "injection",
+      "detection_difficulty": "hard",
+      "deception_level": "high",
+      "notes": "Classic attack vector often missed"
+    },
+    {
+      "id": "GT006",
+      "title": "Size check integer overflow",
+      "description": "Size check uses 32-bit comparison, can overflow with large values",
+      "severity": "high",
+      "category": "overflow",
+      "detection_difficulty": "hard",
+      "deception_level": "very_high",
+      "notes": "Size validation present but mathematically flawed"
+    },
+    {
+      "id": "GT007",
+      "title": "Authentication bypass via header case",
+      "description": "Auth header check is case-sensitive, can bypass with different case",
+      "severity": "critical",
+      "category": "auth",
+      "detection_difficulty": "medium",
+      "deception_level": "high",
+      "notes": "Authentication IS implemented but incorrectly"
+    },
+    {
+      "id": "GT008",
+      "title": "Symlink following in upload directory",
+      "description": "No check for symlinks in destination path",
+      "severity": "high",
+      "category": "filesystem",
+      "detection_difficulty": "hard",
+      "deception_level": "very_high",
+      "notes": "Path validation present but symlinks not considered"
+    },
+    {
+      "id": "GT009",
+      "title": "Denial of service via zip bomb",
+      "description": "Compressed files extracted without ratio limits",
+      "severity": "high",
+      "category": "dos",
+      "detection_difficulty": "medium",
+      "deception_level": "medium",
+      "notes": "File processing handles archives but unsafely"
+    },
+    {
+      "id": "GT010",
+      "title": "Information disclosure in error messages",
+      "description": "Full file paths leaked in error responses",
+      "severity": "medium",
+      "category": "disclosure",
+      "detection_difficulty": "easy",
+      "deception_level": "low",
+      "notes": "Error handling exists but leaks info"
+    },
+    {
+      "id": "GT011",
+      "title": "Command injection in filename processing",
+      "description": "Filename passed to shell command for virus scan",
+      "severity": "critical",
+      "category": "injection",
+      "detection_difficulty": "hard",
+      "deception_level": "very_high",
+      "notes": "Security feature (virus scan) introduces vulnerability"
+    },
+    {
+      "id": "GT012",
+      "title": "Insecure temporary file handling",
+      "description": "Predictable temp file names in world-readable directory",
+      "severity": "high",
+      "category": "filesystem",
+      "detection_difficulty": "hard",
+      "deception_level": "high",
+      "notes": "Temp files are used but insecurely"
+    }
+  ],
+
+  "challenge_notes": "This test specifically evaluates whether adversarial enumeration can find vulnerabilities that LOOK secure. Each vulnerability is designed to pass casual code review but fail adversarial analysis."
+}

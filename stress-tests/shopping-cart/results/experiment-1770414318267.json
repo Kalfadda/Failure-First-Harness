@@ -1,0 +1,6820 @@
+{
+  "timestamp": "2026-02-06T21:45:18.267Z",
+  "groundTruth": 12,
+  "runs": 20,
+  "summary": {
+    "A": {
+      "name": "Single Agent",
+      "avgIdentified": "3.9",
+      "avgVerified": "1.7",
+      "avgMissed": "8.1",
+      "coverage": "32.5%",
+      "falseCompletionRate": "67.5%",
+      "verificationRate": "43.6%"
+    },
+    "B": {
+      "name": "Builder + Verifier",
+      "avgIdentified": "7.0",
+      "avgVerified": "4.8",
+      "avgMissed": "5.0",
+      "coverage": "57.9%",
+      "falseCompletionRate": "42.1%",
+      "verificationRate": "68.3%"
+    },
+    "C": {
+      "name": "Failure-First Harness",
+      "avgIdentified": "10.2",
+      "avgVerified": "9.1",
+      "avgMissed": "1.9",
+      "coverage": "84.6%",
+      "falseCompletionRate": "15.4%",
+      "verificationRate": "89.2%"
+    }
+  },
+  "hypothesisHolds": true,
+  "raw": {
+    "A": [
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": []
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": []
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "A",
+        "name": "Single Agent",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      }
+    ],
+    "B": [
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "B",
+        "name": "Builder + Verifier",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ]
+      }
+    ],
+    "C": [
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      },
+      {
+        "condition": "C",
+        "name": "Failure-First Harness",
+        "identified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT008",
+            "title": "Partial payment state corruption",
+            "difficulty": "hard",
+            "category": "transaction"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ],
+        "missed": [
+          {
+            "id": "GT005",
+            "title": "Inventory oversold",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT010",
+            "title": "Discount exceeds total",
+            "difficulty": "medium",
+            "category": "logic"
+          },
+          {
+            "id": "GT012",
+            "title": "Cart manipulation during checkout",
+            "difficulty": "hard",
+            "category": "race"
+          }
+        ],
+        "verified": [
+          {
+            "id": "GT001",
+            "title": "Negative quantity allows free items",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT002",
+            "title": "Price cached at add time",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT003",
+            "title": "Discount code reapplication",
+            "difficulty": "easy",
+            "category": "validation"
+          },
+          {
+            "id": "GT004",
+            "title": "Race condition on checkout",
+            "difficulty": "hard",
+            "category": "race"
+          },
+          {
+            "id": "GT006",
+            "title": "Float precision errors",
+            "difficulty": "medium",
+            "category": "precision"
+          },
+          {
+            "id": "GT007",
+            "title": "Session expires mid-checkout",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT009",
+            "title": "Deleted product in cart",
+            "difficulty": "medium",
+            "category": "state"
+          },
+          {
+            "id": "GT011",
+            "title": "No quantity limits",
+            "difficulty": "easy",
+            "category": "validation"
+          }
+        ]
+      }
+    ]
+  }
+}

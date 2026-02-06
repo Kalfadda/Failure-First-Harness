@@ -1,0 +1,121 @@
+{
+  "id": "stress-002",
+  "name": "Shopping Cart State Machine",
+  "description": "Implement a shopping cart with inventory, discounts, and checkout",
+
+  "specification": {
+    "features": [
+      "Add/remove items to cart",
+      "Update quantities",
+      "Apply discount codes",
+      "Checkout with payment",
+      "Inventory management"
+    ],
+    "requirements": [
+      "Quantities must be positive integers",
+      "Prices must be consistent",
+      "Inventory must not be oversold",
+      "Discounts applied correctly",
+      "Concurrent access handled safely"
+    ]
+  },
+
+  "ground_truth_failures": [
+    {
+      "id": "GT001",
+      "title": "Negative quantity allows free items",
+      "description": "Setting quantity to -1 results in credit instead of charge",
+      "severity": "critical",
+      "category": "validation",
+      "detection_difficulty": "easy"
+    },
+    {
+      "id": "GT002",
+      "title": "Price changed between add and checkout",
+      "description": "Price in cart doesn't update when product price changes",
+      "severity": "high",
+      "category": "state",
+      "detection_difficulty": "medium"
+    },
+    {
+      "id": "GT003",
+      "title": "Discount code applied multiple times",
+      "description": "Same discount code can be applied repeatedly",
+      "severity": "high",
+      "category": "validation",
+      "detection_difficulty": "easy"
+    },
+    {
+      "id": "GT004",
+      "title": "Race condition: two tabs checkout same cart",
+      "description": "Concurrent checkout requests both succeed",
+      "severity": "critical",
+      "category": "race",
+      "detection_difficulty": "hard"
+    },
+    {
+      "id": "GT005",
+      "title": "Inventory oversold",
+      "description": "More items sold than available in inventory",
+      "severity": "critical",
+      "category": "race",
+      "detection_difficulty": "hard"
+    },
+    {
+      "id": "GT006",
+      "title": "Float precision errors on totals",
+      "description": "0.1 + 0.2 != 0.3 causes incorrect totals",
+      "severity": "medium",
+      "category": "precision",
+      "detection_difficulty": "medium"
+    },
+    {
+      "id": "GT007",
+      "title": "Session expires mid-checkout",
+      "description": "Cart lost if session expires during payment",
+      "severity": "medium",
+      "category": "state",
+      "detection_difficulty": "medium"
+    },
+    {
+      "id": "GT008",
+      "title": "Partial payment state corruption",
+      "description": "Payment fails but order marked as processing",
+      "severity": "critical",
+      "category": "transaction",
+      "detection_difficulty": "hard"
+    },
+    {
+      "id": "GT009",
+      "title": "Deleted product remains in cart",
+      "description": "Checkout fails cryptically when product no longer exists",
+      "severity": "medium",
+      "category": "state",
+      "detection_difficulty": "medium"
+    },
+    {
+      "id": "GT010",
+      "title": "Discount exceeds cart total",
+      "description": "100% discount on item A applied to entire cart",
+      "severity": "high",
+      "category": "logic",
+      "detection_difficulty": "medium"
+    },
+    {
+      "id": "GT011",
+      "title": "Integer overflow on quantity",
+      "description": "MAX_INT quantity causes price calculation overflow",
+      "severity": "medium",
+      "category": "overflow",
+      "detection_difficulty": "medium"
+    },
+    {
+      "id": "GT012",
+      "title": "Cart manipulation after checkout started",
+      "description": "Items added during payment processing",
+      "severity": "high",
+      "category": "race",
+      "detection_difficulty": "hard"
+    }
+  ]
+}
