@@ -1,0 +1,99 @@
+# Failure enumeration template: File Upload
+# Use with /FailFirst adversary to ensure comprehensive coverage
+
+name: File Upload
+description: File upload endpoints (images, documents, attachments)
+
+failure_classes:
+
+  path_traversal:
+    prompt: "How can attackers write files outside intended directory?"
+    must_consider:
+      - Filename containing ../
+      - Filename containing absolute path
+      - Null byte injection in filename
+      - Encoded traversal sequences (%2e%2e%2f)
+      - Unicode normalization attacks
+    typical_severity: critical
+
+  file_type_bypass:
+    prompt: "How can file type restrictions be bypassed?"
+    must_consider:
+      - Double extension (.php.jpg)
+      - Null byte in extension (.php%00.jpg)
+      - MIME type mismatch (image/jpeg for .php)
+      - Magic bytes manipulation
+      - Case sensitivity (.PHP vs .php)
+      - Content-Type header spoofing
+    typical_severity: critical
+
+  malicious_content:
+    prompt: "What malicious content could be uploaded?"
+    must_consider:
+      - Web shells (if served as executable)
+      - Malware (if downloaded by other users)
+      - XSS in SVG files
+      - XXE in XML/SVG files
+      - Zip bombs
+      - Polyglot files (valid image AND valid script)
+    typical_severity: critical
+
+  resource_exhaustion:
+    prompt: "How can uploads exhaust system resources?"
+    must_consider:
+      - Extremely large files
+      - Many small files (inode exhaustion)
+      - Slow upload (connection holding)
+      - Zip bombs (small upload, huge extraction)
+      - Image bombs (small file, huge dimensions)
+      - Concurrent upload limits
+    typical_severity: high
+
+  storage_issues:
+    prompt: "What can go wrong with file storage?"
+    must_consider:
+      - Disk full
+      - Filename collision
+      - Insufficient permissions
+      - Storage service unavailable
+      - Orphaned files (upload succeeds, database fails)
+      - Predictable file paths (direct access)
+    typical_severity: high
+
+  metadata_leakage:
+    prompt: "What metadata could be leaked or exploited?"
+    must_consider:
+      - EXIF data containing GPS coordinates
+      - Office document metadata (author, revision history)
+      - Original filename revealing information
+      - File timestamps
+    typical_severity: medium
+
+  access_control:
+    prompt: "How can access control on uploaded files fail?"
+    must_consider:
+      - Direct URL access without authentication
+      - Predictable/enumerable file URLs
+      - Signed URL expiration too long
+      - Signed URL not bound to user
+      - Missing authorization check on download
+    typical_severity: critical
+
+  processing_vulnerabilities:
+    prompt: "What can go wrong during file processing?"
+    must_consider:
+      - Image processing library vulnerabilities
+      - PDF rendering vulnerabilities
+      - Archive extraction vulnerabilities
+      - Timeout during processing
+      - Memory exhaustion during processing
+    typical_severity: high
+
+oracle_patterns:
+  - "Rejects filenames containing path traversal sequences"
+  - "Validates file type by magic bytes, not extension"
+  - "Stores files with random names, not user-provided names"
+  - "Limits file size to [N] MB"
+  - "Strips EXIF data before storage"
+  - "Serves files with Content-Disposition: attachment"
+  - "Requires authentication for file access"

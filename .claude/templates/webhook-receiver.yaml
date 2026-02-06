@@ -1,0 +1,79 @@
+# Failure enumeration template: Webhook Receiver
+# Use with /FailFirst adversary to ensure comprehensive coverage
+
+name: Webhook Receiver
+description: Endpoints that receive callbacks from external services (Stripe, GitHub, etc.)
+
+failure_classes:
+
+  authentication:
+    prompt: "How can authentication or signature verification be bypassed?"
+    must_consider:
+      - Signature bypass (missing, malformed, wrong algorithm)
+      - Timing attacks on signature comparison
+      - Key confusion (wrong key used for verification)
+      - Replay with valid signature from different payload
+    typical_severity: critical
+
+  replay_and_ordering:
+    prompt: "What happens with duplicate, out-of-order, or missing events?"
+    must_consider:
+      - Duplicate delivery (same event ID twice)
+      - Out-of-order events (cancel before create)
+      - Missing events in sequence
+      - Events for deleted/unknown entities
+    typical_severity: high
+
+  input_validation:
+    prompt: "What malformed or unexpected inputs could cause failures?"
+    must_consider:
+      - Oversized payloads
+      - Malformed JSON/XML
+      - Unexpected event types
+      - Missing required fields
+      - Type confusion (string vs number)
+      - Nested depth limits
+    typical_severity: high
+
+  resource_exhaustion:
+    prompt: "How can resources be exhausted by webhook traffic?"
+    must_consider:
+      - Connection pool exhaustion
+      - Memory exhaustion from large payloads
+      - Database connection limits
+      - Queue backpressure
+      - Disk space (if logging payloads)
+    typical_severity: high
+
+  external_dependencies:
+    prompt: "What happens when downstream services fail?"
+    must_consider:
+      - Database unavailable
+      - Queue unavailable
+      - Dependent API timeout
+      - Partial failures (some writes succeed, others fail)
+    typical_severity: high
+
+  state_corruption:
+    prompt: "How can webhook processing corrupt system state?"
+    must_consider:
+      - Concurrent webhooks for same entity
+      - Webhook processed twice with different outcomes
+      - Partial processing before failure
+      - Stale data when webhook references old state
+    typical_severity: critical
+
+  information_disclosure:
+    prompt: "What information could be leaked through webhook handling?"
+    must_consider:
+      - Error messages revealing internals
+      - Timing differences revealing entity existence
+      - Logs containing sensitive payload data
+    typical_severity: medium
+
+oracle_patterns:
+  - "Returns 401 for [invalid condition]"
+  - "Returns 200 but does not modify state for [duplicate condition]"
+  - "Returns 400 with generic error for [malformed input]"
+  - "Processes within [N]ms under normal load"
+  - "Maintains consistency when [concurrent condition]"

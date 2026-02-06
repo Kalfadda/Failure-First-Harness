@@ -1,0 +1,14 @@
+{
+  "skills": {
+    "fail-first": {
+      "name": "FailFirst",
+      "description": "Separation of powers for reliable AI-assisted development",
+      "path": ".claude/skills/fail-first.md",
+      "triggers": [
+        "/FailFirst",
+        "/failfirst",
+        "/fail-first"
+      ]
+    }
+  }
+}

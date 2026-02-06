@@ -1,0 +1,87 @@
+# Failure enumeration template: Authentication
+# Use with /FailFirst adversary to ensure comprehensive coverage
+
+name: Authentication
+description: User authentication flows (login, registration, session management, password reset)
+
+failure_classes:
+
+  credential_handling:
+    prompt: "How can credentials be stolen, guessed, or bypassed?"
+    must_consider:
+      - Brute force (no rate limiting)
+      - Credential stuffing (known email/password pairs)
+      - Timing attacks (username enumeration via response time)
+      - Password in logs or error messages
+      - Plaintext transmission (if not HTTPS)
+      - Weak password requirements
+    typical_severity: critical
+
+  session_management:
+    prompt: "How can sessions be hijacked, fixated, or abused?"
+    must_consider:
+      - Session fixation (attacker sets session ID)
+      - Session hijacking (predictable or leaked session ID)
+      - Sessions not invalidated on logout
+      - Sessions not invalidated on password change
+      - Concurrent session limits not enforced
+      - Session tokens in URL (referer leakage)
+    typical_severity: critical
+
+  token_handling:
+    prompt: "How can tokens (JWT, API keys, refresh tokens) be compromised?"
+    must_consider:
+      - Token not expiring
+      - Token not revocable
+      - Weak signing algorithm (none, HS256 with weak secret)
+      - Token leakage in logs
+      - Refresh token rotation not enforced
+      - Token scope not validated
+    typical_severity: critical
+
+  account_enumeration:
+    prompt: "How can attackers discover valid accounts?"
+    must_consider:
+      - Different error messages for valid vs invalid users
+      - Different response times for valid vs invalid users
+      - Registration reveals existing emails
+      - Password reset reveals existing accounts
+    typical_severity: medium
+
+  password_reset:
+    prompt: "How can password reset be abused?"
+    must_consider:
+      - Token not single-use
+      - Token not time-limited
+      - Token predictable or brute-forceable
+      - No notification to account owner
+      - Reset link in URL parameters (logged by proxies)
+      - Host header injection in reset emails
+    typical_severity: critical
+
+  mfa_bypass:
+    prompt: "How can multi-factor authentication be bypassed?"
+    must_consider:
+      - MFA not enforced on all sensitive paths
+      - MFA bypass via API vs web
+      - MFA code reuse (no one-time enforcement)
+      - MFA rate limiting (code brute force)
+      - Backup codes not properly secured
+      - MFA recovery flow weaker than MFA itself
+    typical_severity: critical
+
+  authorization_confusion:
+    prompt: "How can authentication be confused with authorization?"
+    must_consider:
+      - Authenticated user accessing other users' data
+      - Role check missing on sensitive endpoints
+      - JWT claims not validated against database
+      - Privilege escalation via parameter tampering
+    typical_severity: critical
+
+oracle_patterns:
+  - "Returns 401 for invalid credentials without revealing which field is wrong"
+  - "Rate limits to [N] attempts per [time period] per [IP/account]"
+  - "Session invalidated within [N] seconds of logout/password change"
+  - "Token expires after [N] minutes/hours"
+  - "Cannot enumerate valid accounts via [endpoint]"

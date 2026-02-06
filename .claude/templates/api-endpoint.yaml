@@ -1,0 +1,100 @@
+# Failure enumeration template: API Endpoint
+# Use with /FailFirst adversary to ensure comprehensive coverage
+
+name: API Endpoint
+description: REST/GraphQL API endpoints (CRUD operations, queries, mutations)
+
+failure_classes:
+
+  authentication:
+    prompt: "How can authentication be bypassed or forged?"
+    must_consider:
+      - Missing auth check on endpoint
+      - Auth check on wrong layer (middleware vs handler)
+      - Token validation incomplete (signature but not expiry)
+      - API key leaked in logs or errors
+      - Bearer token in URL (logged by proxies)
+    typical_severity: critical
+
+  authorization:
+    prompt: "How can users access resources they shouldn't?"
+    must_consider:
+      - IDOR (Insecure Direct Object Reference)
+      - Missing ownership check
+      - Horizontal privilege escalation (user A sees user B data)
+      - Vertical privilege escalation (user becomes admin)
+      - Mass assignment (setting admin=true via API)
+      - GraphQL introspection revealing hidden fields
+    typical_severity: critical
+
+  input_validation:
+    prompt: "What malformed inputs could cause failures?"
+    must_consider:
+      - SQL injection
+      - NoSQL injection
+      - Command injection
+      - Template injection
+      - XSS in stored data
+      - Type confusion (string vs array)
+      - Boundary values (negative, zero, MAX_INT)
+      - Unicode handling issues
+    typical_severity: critical
+
+  rate_limiting:
+    prompt: "How can the API be abused at scale?"
+    must_consider:
+      - No rate limiting
+      - Rate limit bypassable (per IP when behind proxy)
+      - Rate limit not applied to authenticated users
+      - Expensive operations not rate limited separately
+      - GraphQL query complexity not limited
+    typical_severity: high
+
+  data_exposure:
+    prompt: "What data could be unintentionally exposed?"
+    must_consider:
+      - Verbose error messages
+      - Stack traces in production
+      - Debug endpoints enabled
+      - Sensitive fields in response (password hashes, tokens)
+      - Over-fetching (returning more than needed)
+      - Pagination allowing enumeration
+    typical_severity: high
+
+  business_logic:
+    prompt: "How can business rules be violated?"
+    must_consider:
+      - Race conditions (double spend, double booking)
+      - Negative quantities/amounts
+      - State machine violations
+      - Time-of-check/time-of-use bugs
+      - Bypassing required steps
+    typical_severity: high
+
+  availability:
+    prompt: "How can the API be made unavailable?"
+    must_consider:
+      - Regex DoS (ReDoS)
+      - Algorithmic complexity attacks
+      - Resource exhaustion via large inputs
+      - Connection exhaustion
+      - Database lock contention
+      - GraphQL nested query depth
+    typical_severity: high
+
+  versioning_and_deprecation:
+    prompt: "What can go wrong with API evolution?"
+    must_consider:
+      - Deprecated endpoints still accessible
+      - Version mismatch (client expects v2, server serves v1)
+      - Backward compatibility broken
+      - New required fields breaking old clients
+    typical_severity: medium
+
+oracle_patterns:
+  - "Returns 401 for unauthenticated requests"
+  - "Returns 403 when accessing another user's resource"
+  - "Returns 400 for invalid input without revealing internal details"
+  - "Rate limits to [N] requests per [time period]"
+  - "Query execution time under [N]ms for normal inputs"
+  - "Response contains only requested fields"
