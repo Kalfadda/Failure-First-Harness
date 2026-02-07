@@ -32,3 +32,6 @@ Thumbs.db
 
 # Testing
 coverage/
+
+# Archives
+*.zip
